@@ -24,8 +24,8 @@ Connection.connectToMongo();
 io.on("connection", function (socket) {
   console.log("Made socket connection");
   socket.on("device1", function (data) {
-    console.log("Device 1 On/Off");
-    if (led.readSync() === 0) {
+    console.log("Device 1 "+data);
+    if (data) {
       led.writeSync(1);
     } else {
       led.writeSync(0);

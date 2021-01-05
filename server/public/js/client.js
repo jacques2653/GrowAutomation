@@ -7,9 +7,11 @@ socket.on("temperature", function (data) {
 window.addEventListener("load", function () {
   var button = document.getElementById("device1");
 
-  button.addEventListener("click", function () {
+  button.addEventListener("change", function () {
     console.log("ping");
-    socket.emit("device1");
+    var state = document.getElementById("device1").checked ;
+    console.log({ State: state })
+    socket.emit("device1", state);
   });
 
   var button2 = document.getElementById("setMaxDayTemperature");
